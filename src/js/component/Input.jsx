@@ -7,7 +7,20 @@ const Input = ({ tarea, setTarea, lista, setLista }) => {
 
     return (
         <div>
-            <input type="text" value={tarea} placeholder="Añade aqui tu tarea" onChange={(e) => setTarea(e.target.value)} onKeyDown={() => setLista([...lista, tarea])} />
+            <input
+                type="text"
+                value={tarea}
+                placeholder="Añade aqui tu tarea"
+                onChange={(e) => setTarea(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        if (tarea.trim() !== '') {
+                            setLista([...lista, tarea]);
+                            setTarea('');
+                        }
+                    }
+                }}
+            />
         </div>
     );
 };

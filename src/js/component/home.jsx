@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Titulo from './Titulo';
 import Input from './Input';
 import ListaDeTareas from './ListaDeTareas';
+import Contador from './ContadorDeTareas';
 
 //create your first component
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
         <div className="text-center">
             <Titulo />
             <Input tarea={tarea} setTarea={setTarea} setLista={setLista} lista={lista} />
-            <ListaDeTareas lista={lista} />
+            <ListaDeTareas lista={lista} setLista={setLista} />
+            <Contador lista={lista} />
         </div>
     );
 };
